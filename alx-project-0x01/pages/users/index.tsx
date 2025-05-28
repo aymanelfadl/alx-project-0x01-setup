@@ -3,7 +3,7 @@ import Header from "@/components/layout/Header"
 import { UserProps } from "@/interfaces";
 import { useState } from "react"
 
-const Users: React.FC<UserProps> = ({ users }) => {
+const Users: React.FC<UserProps> = ({ posts }) => {
 
   const [expandedId, setExpandedId] = useState<number | null>(null);
   
@@ -29,14 +29,14 @@ const Users: React.FC<UserProps> = ({ users }) => {
 }
 
 export async function getStaticProps() {
-    const response = await fetch("https://jsonplaceholder.typicode.com/users")    
-    const users = await response.json()
-    
-    return {
-      props: {
-        users: users
-      }
+  const response = await fetch("https://jsonplaceholder.typicode.com/users")
+  const posts = await response.json()
+
+  return {
+    props: {
+      posts
     }
+  }
 }
 
 export default Users;

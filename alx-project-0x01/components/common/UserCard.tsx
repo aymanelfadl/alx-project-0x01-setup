@@ -11,12 +11,14 @@ const UserCard: React.FC<UserProps> = ({ user, expanded, onToggle }) => {
           <div className="flex items-center justify-center w-16 h-16 rounded-full bg-blue-600 text-white text-2xl font-bold">
             {user.name[0]}
           </div>
-          <div className="">
+          <div>
             <h2 className="text-xl font-semibold text-cyan-950">{user.name}</h2>
             <p className="text-gray-600">@{user.username}</p>
           </div>
         </div>
-        <div className="space-y-1">
+      </div>
+      <div className="p-3 space-y-1">
+          <p className="font-bold text-sm text-blue-700">{user.email}</p>
           <p className="text-sm text-gray-600">
             <strong>
               website:{" "}
@@ -25,8 +27,6 @@ const UserCard: React.FC<UserProps> = ({ user, expanded, onToggle }) => {
               </span>
             </strong>
           </p>
-          <p className="font-bold text-sm text-blue-700">{user.email}</p>
-        </div>
       </div>
 
       {expanded && (
