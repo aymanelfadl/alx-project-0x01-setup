@@ -1,7 +1,59 @@
+import React from "react";
 import { UserProps } from "@/interfaces";
 
-const UserCard:React.FC<UserProps> = ({id , name, username, email, address,  }) => {
-    return (
-        <div></div>
-    )
-}
+const UserCard: React.FC<UserProps> = ({ user, expanded, onToggle }) => {
+  if (!user) return null;
+
+  return (
+    <div className="max-h-72 p-6 bg-white rounded-xl shadow-md flex flex-col justify-between">
+      <div className="flex items-center justify-between flex-wrap">
+        <div className="flex items-center space-x-4 space-y-4">
+          <div className="flex items-center justify-center w-16 h-16 rounded-full bg-blue-600 text-white text-2xl font-bold">
+            {user.name[0]}
+          </div>
+          <div className="">
+            <h2 className="text-xl font-semibold text-cyan-950">{user.name}</h2>
+            <p className="text-gray-600">@{user.username}</p>
+          </div>
+        </div>
+        <div className="space-y-1">
+          <p className="text-sm text-gray-600">
+            <strong>
+              website:{" "}
+              <span className="text-blue-300 hover:text-blue-700">
+                {user.website}
+              </span>
+            </strong>
+          </p>
+          <p className="font-bold text-sm text-blue-700">{user.email}</p>
+        </div>
+      </div>
+
+      {expanded && (
+        <div className="mt-4 text-sm text-gray-700 space-y-1">
+          <p>
+            <strong>Company:</strong> {user.company.name}
+          </p>
+          <p>
+            <strong>City:</strong> {user.address.city}
+          </p>
+          <p>
+            <strong>Street:</strong> {user.address.street}
+          </p>
+          <p>
+            <strong>Zip Code:</strong> {user.address.zipcode}
+          </p>
+        </div>
+      )}
+
+      <button
+        onClick={onToggle}
+        className="mt-4 text-blue-600 hover:text-blue-900 font-semibold"
+      >
+        {expanded ? "See less" : "See more"}
+      </button>
+    </div>
+  );
+};
+
+export default UserCard;

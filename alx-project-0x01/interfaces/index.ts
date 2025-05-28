@@ -26,7 +26,7 @@ export interface Company {
     bs:          string;
 }
 
-export interface UserProps{
+export interface UserCardProps {
     id:       number;
     name:     string;
     username: string;
@@ -35,4 +35,11 @@ export interface UserProps{
     phone:    string;
     website:  string;
     company:  Company;
+}
+
+export interface UserProps {
+    expanded? :boolean;
+    onToggle: () => void;
+    user?: UserCardProps;
+    users?: UserCardProps[];
 }
