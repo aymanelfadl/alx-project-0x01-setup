@@ -12,7 +12,7 @@ const Users: React.FC<UserProps> = ({ users }) => {
   return (
     <div className="flex flex-col h-full w-full">
       <Header />
-      <main className="p-6 min-h-screen bg-gradient-to-tl to-blue-400 from-purple-950">
+      <main className="p-6 min-h-screen bg-gradient-to-b to-sky-800">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 px-4 items-start">
           {users.map(user => (
             <UserCard 
