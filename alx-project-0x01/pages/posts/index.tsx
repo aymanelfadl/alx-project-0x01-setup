@@ -6,11 +6,11 @@ import { useState } from "react";
 
 const Posts: React.FC<PostProps> = ({ posts }) => {
 
-  if (!posts) return null;
   
   const [isModalOpen, setModalOpen] = useState(false);
   const [post, setPost] = useState<PostData | null>(null);
-
+  
+  if (!posts) return null;
 
   const handleAddPost = (newPost: PostData) => {
     setPost({ ...newPost, id: posts.length + 1 });
