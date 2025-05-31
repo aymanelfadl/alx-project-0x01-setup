@@ -1,9 +1,9 @@
 // components/common/UserModal.tsx
 
 import React, { useState } from "react";
-import { UserModalProps, UserData } from "@/interfaces";
+import { UserModalProps, UserProps } from "@/interfaces";
 
-const initialUser: UserData = {
+const initialUser: UserProps = {
   id: 0,
   name: "",
   username: "",
@@ -28,7 +28,8 @@ const initialUser: UserData = {
 };
 
 const UserModal: React.FC<UserModalProps> = ({ onClose, onSubmit }) => {
-  const [user, setUser] = useState<UserData>(initialUser);
+
+  const [user, setUser] = useState<UserProps>(initialUser);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
